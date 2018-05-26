@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { EntriesModule } from './entries/entries.module';
 import { EmployeesModule } from './employees/employees.module';
+import { ToolsModule } from './tools/tools.module';
+import { FrontendModule } from './frontend/frontend.module';
+
 @Module({
-    modules: [EntriesModule, EmployeesModule],
+    modules: [EmployeesModule, ToolsModule, FrontendModule],
 })
 
 export class ApplicationModule { }

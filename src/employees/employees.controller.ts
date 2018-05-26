@@ -1,20 +1,40 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import * as slug from 'slug';
 import { v4 as uuid } from 'uuid';
-
+import * as qrcode from 'qrcode';
 
 import { CreateEmployeeDto } from './create-employee.dto';
 import { EmployeesService } from './employees.service';
 import { Employee } from './employee.interface';
 
-@Controller('employees')
+@Controller('api/v1/employees')
 export class EmployeesController {
 
   constructor(private readonly employeesService: EmployeesService) { }
 
-  @Get()
-  async findAll(): Promise<Employee[]> {
-    return this.employeesService.findAll();
+  @Get('qrcode/:employeeId')
+  async getOne(@Param('employeeId') employeeId) {
+     const employee = await this.employeesService.findOne(employeeId);
+    if (employee.length > 0) {
+      console.warn(employee);
+      const id = employee[0].id;
+
+       let svgFile = qrcode.toString('http://192.168.1.4:3000/api/v1/employees/' + id)
+        .then(svg => {
+          console.warn(svg);
+          return svg;
+        })
+        .catch(err => {
+          console.error(err);
+          return err
+        }) 
+      return svgFile  
+    }
+  }
+
+  @Get(':employeeId')
+  async findOne(@Param('employeeId') employeeId) {
+     return await this.employeesService.findOne(employeeId);  
   }
 
   @Post()
@@ -23,11 +43,11 @@ export class EmployeesController {
       id: uuid(),
       created_at: new Date(),
     });
-    await this.employeesService.create(newEmployee);
+    return this.employeesService.create(newEmployee);
   }
 
-  // @Delete(':employeeId')
-  // delete( @Param('employeeId') employeeId) {
-  //   return this.employeesService.deleteOne(employeeId);
-  // }
+  @Delete(':employeeId')
+  delete( @Param('employeeId') employeeId) {
+    return this.employeesService.deleteOne(employeeId);
+  }
 }

@@ -1,20 +1,20 @@
 import { Test } from '@nestjs/testing';
 
-import { EmployeesController } from './employees.controller';
-import { EmployeesService } from './employees.service';
+import { ToolsController } from './tools.controller';
+import { ToolsService } from './tools.service';
 
 describe('EmployeesController', () => {
-  let postsController: EmployeesController;
-  let postsService: EmployeesService;
+  let postsController: ToolsController;
+  let postsService: ToolsService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
-      controllers: [EmployeesController],
-      components: [EmployeesService],
+      controllers: [ToolsController],
+      components: [ToolsService],
     }).compile();
 
-    postsService = module.get<EmployeesService>(EmployeesService);
-    postsController = module.get<EmployeesController>(EmployeesController);
+    postsService = module.get<ToolsService>(ToolsService);
+    postsController = module.get<ToolsController>(ToolsController);
   });
 
   describe('findAll', () => {

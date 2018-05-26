@@ -15,9 +15,17 @@ export class EmployeesService {
     }
   }
 
-  async create(Employee: Employee) {
+  async findOne(EmployeeId: string) {
     try {
-      return await this.employeeRepository.save(Employee);
+      return await this.employeeRepository.find({ where: { id: EmployeeId }});
+    } catch (err) {
+      return err;
+    }
+  }
+
+  async create(employee: Employee) {
+    try {
+      return await this.employeeRepository.save(employee);
     } catch (err) {
       return err;
     }
@@ -30,6 +38,5 @@ export class EmployeesService {
       return err;
     }
   }
-
 
 }
