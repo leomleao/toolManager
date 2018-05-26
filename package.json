@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "CrudJS implemented as a REST API, using Nest and Postgres",
   "scripts": {
+    "setup": "npm install",
     "dev": "nodemon",
     "prestart:prod": "tsc",
     "start": "node dist/server.js",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
-    "pretest": "npm run lint",
-    "test": "jest",
-    "heroku-postbuild": "tsc"
+    "build": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "pretest": "npm run build",
+    "test-only": "jest",
+    "test": "npm run test-only",
+    "heroku-postbuild": "tsc",
+    "clean": "shx rm -rf node_modules/ dist/ docs/",
+    "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./src/",
+    "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
   },
   "repository": {
     "type": "git",
@@ -53,7 +58,8 @@
     "nodemon": "^1.17.5",
     "ts-jest": "^21.1.2",
     "ts-node": "^3.3.0",
-    "tslint": "^5.7.0"
+    "tslint": "^5.7.0",
+    "typedoc": "^0.11.1"
   },
   "jest": {
     "moduleFileExtensions": [

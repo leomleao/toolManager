@@ -60,6 +60,9 @@ typings/
 #dist folder
 dist/
 
+#docs
+docs/
+
 \.vscode/
 
 \.DS_Store
