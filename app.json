@@ -1,0 +1,5 @@
+{
+  "name": "Tool Manager",
+  "description": "App to handle web services for the end point apps",
+  "addons": [ "heroku-postgresql" ]
+}

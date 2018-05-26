@@ -32,7 +32,10 @@ This project is acutally part of my boss's work in her MBA, their designing an i
 ## Key Features
 
 
-* Not MUCH yet
+- **[Nest.js](https://nestjs.com/)** is a [TypeScript](https://www.typescriptlang.org/)-based Node.js API framework. It looks like if Angular and Express got physical. It's pretty knew and a bit rough around the edges, but [Kamil Myśliwiec](https://github.com/kamilmysliwiec) is doing an awesome job maintaining it.
+- **[Postgres](https://www.postgresql.org/)** is a very well know Open Source relational database.
+- **[TypeORM](https://typeorm.io/)** is an ORM built on [TypeScript](https://www.typescriptlang.org/), so it makes it a natural choice for Nest.js projects.
+- **[Jest](https://facebook.github.io/jest/)** is a testing platform from Facebook Code. It's easy to configure and provides out-of-the-box mocking and code coverage reporting.
 
 
 
