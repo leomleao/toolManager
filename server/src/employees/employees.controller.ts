@@ -7,7 +7,7 @@ import { CreateEmployeeDto } from './create-employee.dto';
 import { EmployeesService } from './employees.service';
 import { Employee } from './employee.interface';
 
-@Controller('api/v1/employees')
+@Controller('employees')
 export class EmployeesController {
 
   constructor(private readonly employeesService: EmployeesService) { }

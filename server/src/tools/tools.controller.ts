@@ -8,7 +8,7 @@ import { CreateToolDto } from './create-tool.dto';
 import { ToolsService } from './tools.service';
 import { Tool } from './tool.interface';
 
-@Controller('api/v1/tools')
+@Controller('tools')
 export class ToolsController {
 
   constructor(private readonly toolsService: ToolsService) { }
