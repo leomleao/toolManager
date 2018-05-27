@@ -6,7 +6,7 @@ import { ApplicationModule } from './app.module';
 import { ValidationPipe } from './validation.pipe';
 
 async function bootstrap() {
-  await dotenv.config({silent: true});
+  await dotenv.config({silent: true, path: '../.env'});
   const app = await NestFactory.create(ApplicationModule);
   app.use(bodyParser.json());
   app.useGlobalPipes(new ValidationPipe());

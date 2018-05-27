@@ -4,8 +4,6 @@ import { Body, Controller, Get, Param, HttpStatus, Res } from '@nestjs/common';
 export class FrontendController {
 
   @Get('')
-  async get(@Res() res) {  
-  	
+  async get(@Res() res) {
   }
 }
-

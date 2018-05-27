@@ -5,8 +5,8 @@
   "scripts": {
     "setup": "npm install",
     "dev": "nodemon",
-    "start": "node server/dist/server.js",
-    "build": "tslint -c tslint.json 'server/src/**/*.{ts,tsx}'",
+    "start": "node ./dist/server.js",
+    "build": "tslint -c tslint.json './src/**/*.{ts,tsx}'",
     "pretest": "npm run build",
     "test-only": "jest",
     "test": "npm run test-only",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crudjs/rest-nestjs-postgres.git"
+    "url": "git+https://github.com/leomleao/toolManager.git"
   },
   "keywords": [],
   "author": "Leo Leao <leomleao@gmail.com>",

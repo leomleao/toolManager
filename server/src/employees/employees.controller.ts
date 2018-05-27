@@ -14,27 +14,25 @@ export class EmployeesController {
 
   @Get('qrcode/:employeeId')
   async getOne(@Param('employeeId') employeeId) {
-     const employee = await this.employeesService.findOne(employeeId);
+    const employee = await this.employeesService.findOne(employeeId);
     if (employee.length > 0) {
-      console.warn(employee);
+
       const id = employee[0].id;
 
-       let svgFile = qrcode.toString('http://192.168.1.4:3000/api/v1/employees/' + id)
+      const svgFile = qrcode.toString('http://192.168.1.4:3000/api/v1/employees/' + id)
         .then(svg => {
-          console.warn(svg);
           return svg;
         })
         .catch(err => {
-          console.error(err);
-          return err
-        }) 
-      return svgFile  
+          return err;
+        });
+      return svgFile;
     }
   }
 
   @Get(':employeeId')
   async findOne(@Param('employeeId') employeeId) {
-     return await this.employeesService.findOne(employeeId);  
+     return await this.employeesService.findOne(employeeId);
   }
 
   @Post()

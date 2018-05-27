@@ -1,0 +1,36 @@
+{
+  "name": "toolmanager",
+  "version": "1.0.0",
+  "description": "App with frontend and backend",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "run-p install:server install:client",
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "build": "run-p build:server build:client",
+    "build:server" : "run-s prebuild:server postbuild:server",
+    "prebuild:server": "cd server && npm run build",
+    "postbuild:server": "cd server && npm run tsc",
+    "build:client": "cd client && npm run dist",
+    "start": "run-p start:server start:client",
+    "start:server": "npm run start --prefix server",
+    "start:client": "npm run start --prefix client",
+    "clean": "run-p clean:server clean:client",
+    "clean:server": "cd server && npm run clean",
+    "clean:client": "cd client && npm run build"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leomleao/toolManager.git"
+  },
+  "author": "Leo Leao (leomleao@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leomleao/toolManager/issues"
+  },
+  "homepage": "https://github.com/leomleao/toolManager#readme",
+  "dependencies": {
+    "npm-run-all": "^4.1.3"
+  }
+}

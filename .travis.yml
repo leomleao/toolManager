@@ -1,11 +1,11 @@
 language: nodejs
 
 before_script:
-  - npm run setup
+  - npm run postinstall
   - npm run build
 
-script:
-  - npm run test-only
+# script:
+#   - npm run test-only
 
 # after_success:
 #   - npm run typedoc

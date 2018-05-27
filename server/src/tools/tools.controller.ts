@@ -15,27 +15,30 @@ export class ToolsController {
 
   @Get('qrcode/:toolId')
   async getOne(@Param('toolId') toolId) {
-     const tool = await this.toolsService.findOne(toolId);
+    const tool = await this.toolsService.findOne(toolId);
     if (tool.length > 0) {
-      console.warn(tool);
-      const id = tool[0].id;
 
-       let svgFile = qrcode.toString(id)
-        .then(svg => {
-          console.warn(svg);
-          return svg;
-        })
-        .catch(err => {
-          console.error(err);
-          return err
-        }) 
-      return svgFile  
+      const id = tool[0].id;
+      const svgFile = qrcode.toString(id)
+      .then(svg => {
+
+        return svg;
+
+      })
+      .catch(err => {
+
+        return err;
+
+      });
+
+      return svgFile;
+
     }
   }
 
   @Get('free/:toolId')
   async freeOne(@Param('toolId') toolId) {
-    var tool = await this.toolsService.findOne(toolId);    
+    const tool = await this.toolsService.findOne(toolId);
     tool.in_use = null;
     tool.since = null;
     return await this.toolsService.save(tool);
@@ -43,14 +46,18 @@ export class ToolsController {
 
   @Post('reserve')
   async reserve(@Body() body) {
-    var tool = await this.toolsService.findOne(body.toolId);
-    if (!tool.in_use || !tool.since){
+    const tool = await this.toolsService.findOne(body.toolId);
+    if (!tool.in_use || !tool.since) {
       tool.in_use = body.employeeId;
       tool.since = new Date();
+
       return await this.toolsService.save(tool);
+
     } else {
-      throw new HttpException('Tool already in Use!', HttpStatus.BAD_REQUEST); 
-    }       
+
+      throw new HttpException('Tool already in Use!', HttpStatus.BAD_REQUEST);
+
+    }
   }
 
   @Get(':toolId')

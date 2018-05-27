@@ -13,6 +13,6 @@
 		"allowJs": true,
 		"outDir": "./dist"
 	},
-	"include": ["server/src/**/*"],
-	"exclude": ["server/node_modules", "server/**/*.spec.ts"]
+	"include": ["./src/**/*"],
+	"exclude": ["./node_modules", "./**/*.spec.ts"]
 }

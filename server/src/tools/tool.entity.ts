@@ -9,7 +9,7 @@ export class Tool {
   name: string;
 
   @Column({
-  	nullable: true,
+    nullable: true,
   })
   in_use: string;
 
