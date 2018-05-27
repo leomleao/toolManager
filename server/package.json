@@ -11,7 +11,6 @@
     "pretest": "npm run build",
     "test-only": "jest",
     "test": "npm run test-only",
-    "heroku-postbuild": "tsc",
     "clean": "shx rm -rf node_modules/ dist/ docs/",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./server/src/",
     "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
