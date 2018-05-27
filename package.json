@@ -10,7 +10,7 @@
     "build": "run-p build:server build:client",
     "build:server" : "run-s prebuild:server postbuild:server",
     "prebuild:server": "cd server && npm run build",
-    "postbuild:server": "cd server && tsc",
+    "postbuild:server": "cd server && npm postbuild",
     "build:client": "cd client && npm run dist",
     "start": "run-p start:server start:client",
     "start:server": "npm run start --prefix server",

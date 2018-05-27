@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "API and react app for tool management",
   "scripts": {
+    "postbuild": "tsc",
     "setup": "npm install",
     "dev": "nodemon",
     "start": "node ./dist/server.js",
