@@ -6,6 +6,7 @@ import * as path from 'path';
 
 import { ApplicationModule } from './app.module';
 import { ValidationPipe } from './validation.pipe';
+import { AnyExceptionFilter } from './any-exception.filter';
 
 async function bootstrap() {
   await dotenv.config({silent: true, path: '../.env'});
@@ -17,6 +18,7 @@ async function bootstrap() {
     root: path.resolve(__dirname, '../../client/dist'),
   });
   // app.setGlobalPrefix('api/v1');
+  app.useGlobalFilters(new AnyExceptionFilter());
   const port = parseInt(process.env.PORT, 10) || 8080;
   await app.listen(port);
 }
