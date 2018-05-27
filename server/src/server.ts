@@ -1,12 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import * as bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
+import * as raven from 'raven';
 
 import { ApplicationModule } from './app.module';
 import { ValidationPipe } from './validation.pipe';
 
 async function bootstrap() {
   await dotenv.config({silent: true, path: '../.env'});
+  await raven.config('https://ba3ccffd7a0d43048735eb90a7890a2d@sentry.io/1214409').install();
   const app = await NestFactory.create(ApplicationModule);
   app.use(bodyParser.json());
   app.useGlobalPipes(new ValidationPipe());
