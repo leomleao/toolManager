@@ -58,7 +58,10 @@ typings/
 .env
 
 #dist folder
-dist/
+server/dist/*
+!server/dist/.gitkeep
+client/dist/*
+!client/dist/.gitkeep
 
 #docs
 docs/
