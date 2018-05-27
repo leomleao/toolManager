@@ -14,7 +14,7 @@ async function bootstrap() {
   app.use(bodyParser.json());
   app.useGlobalPipes(new ValidationPipe());
   app.useStaticAssets({
-    root: __dirname + '../../../client/dist',
+    root: path.resolve(__dirname, '../../client/dist'),
   });
   // app.setGlobalPrefix('api/v1');
   const port = parseInt(process.env.PORT, 10) || 8080;

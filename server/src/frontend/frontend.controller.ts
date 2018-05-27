@@ -6,6 +6,6 @@ export class FrontendController {
 
   @Get('')
   root(@Res() res) {
-    res.sendFile('index.html', { root: __dirname + 'client/dist' });
+    res.sendFile('index.html', { root: path.resolve(__dirname, '../../client/dist') });
   }
 }
