@@ -8,7 +8,7 @@ import { employeeProviders } from './employee.providers';
 @Module({
     modules: [DBModule],
     controllers: [EmployeesController],
-    components: [
+    providers: [
         ...employeeProviders,
         EmployeesService,
     ],

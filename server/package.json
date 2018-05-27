@@ -32,14 +32,17 @@
     "npm": "6.1.0"
   },
   "dependencies": {
-    "@nestjs/common": "^4.6.6",
-    "@nestjs/core": "^4.6.6",
-    "@nestjs/microservices": "^4.6.6",
-    "@nestjs/testing": "^4.6.6",
-    "@nestjs/websockets": "^4.6.6",
+    "@nestjs/common": "^5.0.0",
+    "@nestjs/core": "^5.0.0",
+    "@nestjs/microservices": "^5.0.0",
+    "@nestjs/testing": "^5.0.0",
+    "@nestjs/websockets": "^5.0.0",
     "body-parser": "^1.18.3",
     "class-transformer": "^0.1.9",
     "class-validator": "^0.7.3",
+    "fastify": "^1.5.0",
+    "fastify-formbody": "^2.0.0",
+    "fastify-static": "^0.12.0",
     "pg": "^7.4.3",
     "qrcode": "^1.2.0",
     "raven": "^2.6.2",
@@ -61,8 +64,8 @@
     "nodemon": "^1.17.5",
     "shx": "^0.2.2",
     "ts-jest": "^21.2.4",
-    "ts-node": "^3.3.0",
-    "tslint": "^5.10.0",
+    "ts-node": "^6.0.0",
+    "tslint": "^5.9.1",
     "typedoc": "^0.11.1"
   },
   "jest": {

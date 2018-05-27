@@ -8,7 +8,7 @@ import { toolProviders } from './tool.providers';
 @Module({
     modules: [DBModule],
     controllers: [ToolsController],
-    components: [
+    providers: [
         ...toolProviders,
         ToolsService,
     ],

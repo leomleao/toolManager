@@ -1,5 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, HttpStatus } from '@nestjs/common';
-import { HttpException } from '@nestjs/core';
+import { Body, Controller, Delete, Get, Param, Post, HttpStatus, HttpException } from '@nestjs/common';
 import * as slug from 'slug';
 import { v4 as uuid } from 'uuid';
 import * as qrcode from 'qrcode';
@@ -8,7 +7,7 @@ import { CreateToolDto } from './create-tool.dto';
 import { ToolsService } from './tools.service';
 import { Tool } from './tool.interface';
 
-@Controller('tools')
+@Controller('api/v1/tools')
 export class ToolsController {
 
   constructor(private readonly toolsService: ToolsService) { }

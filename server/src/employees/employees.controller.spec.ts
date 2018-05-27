@@ -10,7 +10,7 @@ describe('EmployeesController', () => {
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       controllers: [EmployeesController],
-      components: [EmployeesService],
+      providers: [EmployeesService],
     }).compile();
 
     postsService = module.get<EmployeesService>(EmployeesService);

@@ -1,7 +1,8 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, FastifyAdapter } from '@nestjs/core';
 import * as bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
 import * as raven from 'raven';
+import * as path from 'path';
 
 import { ApplicationModule } from './app.module';
 import { ValidationPipe } from './validation.pipe';
@@ -9,11 +10,14 @@ import { ValidationPipe } from './validation.pipe';
 async function bootstrap() {
   await dotenv.config({silent: true, path: '../.env'});
   await raven.config('https://ba3ccffd7a0d43048735eb90a7890a2d@sentry.io/1214409').install();
-  const app = await NestFactory.create(ApplicationModule);
+  const app = await NestFactory.create(ApplicationModule, new FastifyAdapter());
   app.use(bodyParser.json());
   app.useGlobalPipes(new ValidationPipe());
-  app.setGlobalPrefix('api/v1');
-  const port = parseInt(process.env.PORT, 10) || 3000;
+  app.useStaticAssets({
+    root: __dirname + '../../../client/dist',
+  });
+  // app.setGlobalPrefix('api/v1');
+  const port = parseInt(process.env.PORT, 10) || 8080;
   await app.listen(port);
 }
 
