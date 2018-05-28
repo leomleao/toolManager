@@ -13,8 +13,7 @@
     "test": "npm run test-only",
     "clean": "shx rm -rf dist/",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./server/src/",
-    "posttypedoc": "shx cp .nojekyll docs/.nojekyll",
-    "heroku-postbuild": "tsc"
+    "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
   },
   "repository": {
     "type": "git",
@@ -27,10 +26,6 @@
     "url": "https://github.com/leomleao/toolManager-postgres/issues"
   },
   "homepage": "https://github.com/leomleao/toolManager#readme",
-  "engines": {
-    "node": "8.9.1",
-    "npm": "6.1.0"
-  },
   "dependencies": {
     "@nestjs/common": "^5.0.0",
     "@nestjs/core": "^5.0.0",
