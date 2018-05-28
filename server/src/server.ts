@@ -22,7 +22,7 @@ async function bootstrap() {
     root: path.resolve(__dirname, '../../client/dist'),
   });
   // app.setGlobalPrefix('api/v1');
-  app.useGlobalFilters(new HttpExceptionFilter());
+  // app.useGlobalFilters(new HttpExceptionFilter());
   const port = process.env.PORT || 3000;
   app.listen(port, '0.0.0.0');
 }
