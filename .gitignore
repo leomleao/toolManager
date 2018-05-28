@@ -58,10 +58,11 @@ typings/
 .env
 
 #dist folder
-server/dist/*
+server/dist/**/*
 !server/dist/.gitkeep
-client/dist/*
+client/dist/**/*
 !client/dist/favicon.ico
+!client/dist/assets/.gitkeep
 
 #docs
 docs/
