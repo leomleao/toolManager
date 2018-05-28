@@ -8,18 +8,17 @@
     "install:server": "cd server && npm install",
     "install:client": "cd client && npm install",
     "build": "run-p build:server build:client",
-    "build:server" : "run-s prebuild:server postbuild:server",
+    "build:server": "run-s prebuild:server postbuild:server",
     "prebuild:server": "cd server && npm run build",
     "postbuild:server": "cd server && npm run postbuild",
     "build:client": "cd client && npm run dist",
-    "start": "run-p start:server",
-    "start:server": "npm run start --prefix server",
+    "start:all": "run-p start:server",
+    "start": "npm run start --prefix server",
     "start:client": "npm run start --prefix client",
     "clean": "run-p clean:server clean:client",
     "clean:server": "cd server && npm run clean",
     "clean:client": "cd client && npm run build",
     "heroku-postbuild": "cd server && npm run postbuild"
-
   },
   "repository": {
     "type": "git",
