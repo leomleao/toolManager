@@ -5,7 +5,7 @@ import * as path from 'path';
 export class FrontendController {
 
   @Get('')
-  root(@Res() res) {
+  get(@Res() res) {
     res.sendFile('index.html', { root: path.resolve(__dirname, '../../../client/dist') });
   }
 }
