@@ -11,9 +11,10 @@
     "pretest": "npm run build",
     "test-only": "jest",
     "test": "npm run test-only",
-    "clean": "shx rm -rf node_modules/ dist/ docs/",
+    "clean": "shx rm -rf dist/",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./server/src/",
-    "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
+    "posttypedoc": "shx cp .nojekyll docs/.nojekyll",
+    "heroku-postbuild": "tsc"
   },
   "repository": {
     "type": "git",
