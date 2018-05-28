@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, HttpStatus, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Res } from '@nestjs/common';
 import * as path from 'path';
 
 @Controller('')

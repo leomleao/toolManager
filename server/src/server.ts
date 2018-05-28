@@ -6,7 +6,7 @@ import * as path from 'path';
 
 import { ApplicationModule } from './app.module';
 import { ValidationPipe } from './validation.pipe';
-import { AnyExceptionFilter } from './any-exception.filter';
+import { HttpExceptionFilter } from './http-exception.filter';
 
 async function bootstrap() {
   if (process.env.NODE_ENV !== 'production') {
@@ -20,7 +20,7 @@ async function bootstrap() {
     root: path.resolve(__dirname, '../../client/dist'),
   });
   // app.setGlobalPrefix('api/v1');
-  app.useGlobalFilters(new AnyExceptionFilter());
+  app.useGlobalFilters(new HttpExceptionFilter());
   const port = parseInt(process.env.PORT, 10) || 8080;
   await app.listen(port);
 }
