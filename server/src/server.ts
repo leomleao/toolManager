@@ -19,11 +19,11 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   // app.useGlobalInterceptors(new ErrorsInterceptor());
   app.useStaticAssets({
-    root: path.resolve(__dirname, '../../client/dist'),
+    root: path.resolve(__dirname, '../../client/build'),
   });
   // app.setGlobalPrefix('api/v1');
   // app.useGlobalFilters(new HttpExceptionFilter());
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 5000;
   app.listen(port, '0.0.0.0');
 }
 

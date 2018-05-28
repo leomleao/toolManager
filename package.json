@@ -11,7 +11,7 @@
     "build:server": "run-s prebuild:server postbuild:server",
     "prebuild:server": "cd server && npm run build",
     "postbuild:server": "cd server && npm run postbuild",
-    "build:client": "cd client && npm run dist",
+    "build:client": "cd client && npm run build",
     "start:all": "run-p start:server",
     "start": "npm run start --prefix server",
     "start:client": "npm run start --prefix client",

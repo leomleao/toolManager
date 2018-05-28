@@ -1,11 +1,11 @@
 import { Body, Controller, Get, Param, Res } from '@nestjs/common';
 import * as path from 'path';
 
-@Controller('')
+@Controller()
 export class FrontendController {
 
-  @Get('')
+  @Get()
   get(@Res() res) {
-    res.sendFile('index.html', { root: path.resolve(__dirname, '../../../client/dist') });
+    res.sendFile('index.html', { root: path.resolve(__dirname, '../../../client/build') });
   }
 }
