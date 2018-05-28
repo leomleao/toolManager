@@ -61,7 +61,7 @@ typings/
 server/dist/*
 !server/dist/.gitkeep
 client/dist/*
-!client/dist/.gitkeep
+!client/dist/favicon.ico
 
 #docs
 docs/
