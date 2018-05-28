@@ -21,7 +21,7 @@ async function bootstrap() {
   });
   // app.setGlobalPrefix('api/v1');
   app.useGlobalFilters(new HttpExceptionFilter());
-  const port = parseInt(process.env.PORT, 10) || 8080;
+  const port = process.env.PORT || 8080;
   await app.listen(port);
 }
 
