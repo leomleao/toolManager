@@ -20,6 +20,9 @@
     "clean:client": "cd client && npm run build",    
     "heroku-postbuild": "cd server && npm run postbuild"   
   },
+  "engines": {
+    "npm": "5.7.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leomleao/toolManager.git"

@@ -15,8 +15,6 @@ async function bootstrap() {
   }
   await raven.config(process.env.SENTRY_DSN).install();
   const app = await NestFactory.create(ApplicationModule, new FastifyAdapter());
-  app.use(raven.requestHandler());
-  app.use(raven.errorHandler());
   app.use(bodyParser.json());
   app.useGlobalPipes(new ValidationPipe());
   // app.useGlobalInterceptors(new ErrorsInterceptor());
