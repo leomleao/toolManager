@@ -9,7 +9,9 @@ import { ValidationPipe } from './validation.pipe';
 import { AnyExceptionFilter } from './any-exception.filter';
 
 async function bootstrap() {
-  await dotenv.config({silent: true, path: '../.env'});
+  if (process.env.NODE_ENV !== 'production') {
+    await dotenv.config({silent: true, path: '../.env'});
+  }
   await raven.config('https://ba3ccffd7a0d43048735eb90a7890a2d@sentry.io/1214409').install();
   const app = await NestFactory.create(ApplicationModule, new FastifyAdapter());
   app.use(bodyParser.json());

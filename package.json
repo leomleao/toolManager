@@ -2,7 +2,7 @@
   "name": "toolmanager",
   "version": "1.0.0",
   "description": "App with frontend and backend",
-  "main": "index.js",
+  "main": "server/dist/server.js",
   "scripts": {
     "postinstall": "run-p install:server install:client",
     "install:server": "cd server && npm install",
