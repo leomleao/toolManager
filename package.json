@@ -24,10 +24,6 @@
     "type": "git",
     "url": "git+https://github.com/leomleao/toolManager.git"
   },
-  "engines": {
-    "node": "8.9.1",
-    "npm": "6.1.0"
-  },
   "author": "Leo Leao (leomleao@gmail.com)",
   "license": "ISC",
   "bugs": {
