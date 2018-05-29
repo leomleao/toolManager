@@ -18,7 +18,7 @@
     "clean": "run-p clean:server clean:client",
     "clean:server": "cd server && npm run clean",
     "clean:client": "cd client && npm run build",
-    "heroku-postbuild": "cd server && npm run postbuild"
+    "heroku-postbuild": "run-s build:client postbuild:server"
   },
   "repository": {
     "type": "git",
