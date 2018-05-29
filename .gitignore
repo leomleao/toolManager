@@ -60,9 +60,8 @@ typings/
 #dist folder
 server/dist/**/*
 !server/dist/.gitkeep
-client/dist/**/*
-!client/dist/favicon.ico
-!client/dist/assets/.gitkeep
+client/build/**/*
+!client/build/.gitkeep
 
 #docs
 docs/
