@@ -64,6 +64,11 @@ export class ToolsController {
     return this.toolsService.findOne(toolId);
   }
 
+  @Get()
+  async get() {
+    return '{"foo": "hello world" }';
+  }
+
   @Post()
   async create( @Body() createToolDto: CreateToolDto) {
     const newTool = Object.assign({}, createToolDto, {

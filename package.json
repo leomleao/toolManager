@@ -17,8 +17,8 @@
     "start:client": "npm run start --prefix client",
     "clean": "run-p clean:server clean:client",
     "clean:server": "cd server && npm run clean",
-    "clean:client": "cd client && npm run build",    
-    "heroku-postbuild": "cd server && npm run postbuild"   
+    "clean:client": "cd client && npm run build",
+    "heroku-postbuild": "cd server && npm run postbuild"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/leomleao/toolManager#readme",
   "dependencies": {
-    "npm-run-all": "^4.1.3"
+    "npm-run-all": "^4.1.3",
+    "react-svg": "^4.0.13"
   }
 }
