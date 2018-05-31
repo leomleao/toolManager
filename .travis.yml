@@ -1,6 +1,12 @@
 language: node_js
 node_js: node
 
+cache:
+  directories:
+    - "node_modules"
+    - "server/node_modules"
+    - "client/node_modules"
+
 before_script:
   - npm install  
   - npm run postinstall
@@ -11,3 +17,10 @@ before_script:
 
 # after_success:
 #   - npm run typedoc
+before_deploy: 
+  - npm install 
+  - npm build
+
+deploy:
+  provider: azure_web_apps
+  verbose: true
