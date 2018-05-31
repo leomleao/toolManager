@@ -13,7 +13,7 @@
     "postbuild:server": "cd server && npm run postbuild",
     "build:client": "cd client && npm run build",
     "start:all": "run-p start:server",
-    "start": "npm run start --prefix server",
+    "start": "cd server && npm run start",
     "start:client": "npm run start --prefix client",
     "clean": "run-p clean:server clean:client",
     "clean:server": "cd server && npm run clean",
