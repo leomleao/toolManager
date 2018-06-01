@@ -1,9 +1,9 @@
-import { Component, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
 import { Employee } from './employee.interface';
 
-@Component()
+@Injectable()
 export class EmployeesService {
   constructor( @Inject('EmployeeRepositoryToken') private readonly employeeRepository: Repository<Employee>) { }
 
@@ -15,9 +15,9 @@ export class EmployeesService {
     }
   }
 
-  async findOne(EmployeeId: string) {
+  async findOne(conds: Object) {
     try {
-      return await this.employeeRepository.find({ where: { id: EmployeeId }});
+      return await this.employeeRepository.findOne({ where: conds });
     } catch (err) {
       return err;
     }
@@ -31,9 +31,18 @@ export class EmployeesService {
     }
   }
 
+  async save(employee: Employee) {
+    try {
+      return await this.employeeRepository.save(employee);
+    } catch (err) {
+      return err;
+    }
+  }
+
   async deleteOne(EmployeeId: string) {
     try {
-      return await this.employeeRepository.removeById(EmployeeId);
+      const employeeToRemove = await this.employeeRepository.findOne({ where: { id: EmployeeId }});
+      return await this.employeeRepository.remove(employeeToRemove);
     } catch (err) {
       return err;
     }

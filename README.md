@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://travis-ci.org/leomleao/toolManager">
-    <img src="https://travis-ci.org/leomleao/toolManager.svg?branch=dev"
+    <img src="https://travis-ci.org/leomleao/toolManager.svg?branch=master"
          alt="Travis">
   </a>  
 </p>

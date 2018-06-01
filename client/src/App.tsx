@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch  } from 'react-router-dom';
 import Camera from './components/Camera';
 import logo from './logo.svg';
 
@@ -30,8 +30,9 @@ class App extends React.Component {
               onClick={this.getTools}>
               Try Again?
           </button>
+          <Link to="/app/teste">Zillow Group</Link>
           <Switch>
-            <Route path="/id/:id" component={Camera} />
+            <Route path="/app/:id" component={Camera} />
           </Switch>
         </div>
        </Router>

@@ -1,9 +1,9 @@
-import { Component, Inject } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
 import { Tool } from './tool.interface';
 
-@Component()
+@Injectable()
 export class ToolsService {
   constructor( @Inject('ToolRepositoryToken') private readonly toolRepository: Repository<Tool>) { }
 
@@ -41,10 +41,10 @@ export class ToolsService {
 
   async deleteOne(ToolId: string) {
     try {
-      return await this.toolRepository.removeById(ToolId);
+      const toolToRemove = await this.toolRepository.findOne({ where: { id: ToolId }});
+      return await this.toolRepository.remove(toolToRemove);
     } catch (err) {
       return err;
     }
   }
-
 }

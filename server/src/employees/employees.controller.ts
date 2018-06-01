@@ -7,18 +7,17 @@ import { CreateEmployeeDto } from './create-employee.dto';
 import { EmployeesService } from './employees.service';
 import { Employee } from './employee.interface';
 
-@Controller('api/v1/employees')
+@Controller('/api/v1/employees')
 export class EmployeesController {
 
   constructor(private readonly employeesService: EmployeesService) { }
 
   @Get('qrcode/:employeeId')
   async getOne(@Param('employeeId') employeeId, @Req() request) {
-    const fullUrl = 'http://' + request.headers.host + '/api/v1/employees/';
-    const employee = await this.employeesService.findOne(employeeId);
-    if (employee.length > 0) {
-
-      const id = employee[0].id;
+    const fullUrl = 'http://' + request.headers.host + '/login/';
+    const employee = await this.employeesService.findOne({id : employeeId });
+    if (employee) {
+      const id = employee.id;
 
       const svgFile = qrcode.toString(fullUrl + id)
         .then(svg => {
@@ -43,6 +42,7 @@ export class EmployeesController {
     const newEmployee = Object.assign({}, createEmployeeDto, {
       id: uuid(),
       created_at: new Date(),
+      password: null,
     });
     return this.employeesService.create(newEmployee);
   }

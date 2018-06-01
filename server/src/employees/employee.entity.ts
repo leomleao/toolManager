@@ -8,6 +8,11 @@ export class Employee {
   @Column()
   name: string;
 
+  @Column({
+    nullable: true,
+  })
+  password: string;
+
   @Column()
   created_at: Date;
 }

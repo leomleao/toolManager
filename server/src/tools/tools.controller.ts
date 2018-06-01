@@ -7,7 +7,7 @@ import { CreateToolDto } from './create-tool.dto';
 import { ToolsService } from './tools.service';
 import { Tool } from './tool.interface';
 
-@Controller('api/v1/tools')
+@Controller('/api/v1/tools')
 export class ToolsController {
 
   constructor(private readonly toolsService: ToolsService) { }
@@ -80,8 +80,8 @@ export class ToolsController {
     return this.toolsService.create(newTool);
   }
 
-  @Delete(':toolId')
-  delete( @Param('toolId') toolId) {
-    return this.toolsService.deleteOne(toolId);
-  }
+  // @Delete(':toolId')
+  // delete( @Param('toolId') toolId) {
+  //   return this.toolsService.deleteOne(toolId);
+  // }
 }

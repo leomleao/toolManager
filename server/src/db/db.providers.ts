@@ -7,12 +7,16 @@ export const dbProvider =
   {
     provide: 'DbConnectionToken',
     useFactory: async () => await createConnection({
-      type: 'postgres',
+      type: 'mssql',
       url: process.env.DATABASE_URL,
       entities: [
         Employee,
         Tool,
       ],
+      options: {
+        encrypt: true,
+      },
+      logging: true,
       synchronize: true, // DEV only, do not use on PROD!
     }),
   };
