@@ -5,21 +5,30 @@ import { ToolsController } from './tools.controller';
 import { ToolsService } from './tools.service';
 import { toolProviders } from './tool.providers';
 
-import { AuthModule } from '../auth.module';
+import { ToolMiddleware } from './tool.middleware';
+
+import { EmployeesService } from '../employees/employees.service';
+import { employeeProviders } from '../employees/employee.providers';
+
 import { MiddlewaresConsumer } from '@nestjs/common/interfaces/middlewares';
 
 @Module({
-    modules: [DBModule, AuthModule],
+    modules: [DBModule],
     controllers: [ToolsController],
     providers: [
         ...toolProviders,
         ToolsService,
+        ...employeeProviders,
+        EmployeesService,
     ],
     exports: [ToolsService],
 })
 
-export class ToolsModule implements AuthModule{
+export class ToolsModule {
     public configure(consumer: MiddlewaresConsumer) {
-        consumer.apply(this.authMiddleware).forRoutes('/api/v1/tools/reserve');
+        consumer
+            .apply(ToolMiddleware)
+            .with('ToolsModule')
+            .forRoutes('/api/v1/tools/reserve');
     }
 }

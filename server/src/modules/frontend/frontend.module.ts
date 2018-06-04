@@ -6,7 +6,7 @@ import { employeeProviders } from '../employees/employee.providers';
 import { FrontendController } from './frontend.controller';
 
 @Module({
-    modules: [DBModule],	
+    modules: [DBModule],
     controllers: [FrontendController],
     providers: [
         ...employeeProviders,

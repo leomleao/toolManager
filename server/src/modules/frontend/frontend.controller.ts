@@ -1,7 +1,7 @@
 import { Body, Controller, Get, HttpStatus, Param, Post, Res, HttpException } from '@nestjs/common';
 import * as path from 'path';
 import { EmployeesService } from '../employees/employees.service';
-import { Employee } from '../employees/employee.interface';
+import { Employee } from '../employees/employee.entity';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 

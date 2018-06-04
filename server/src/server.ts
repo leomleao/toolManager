@@ -3,7 +3,8 @@ import * as dotenv from 'dotenv';
 import * as path from 'path';
 
 import { ApplicationModule } from './app.module';
-import { ValidationPipe } from './validation.pipe';
+import { ValidationPipe } from './common/validation.pipe';
+// import { HttpExceptionFilter } from './http.exception.filter';
 
 async function bootstrap() {
   if (!process.env.NODE_ENV) {

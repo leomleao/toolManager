@@ -1,12 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Post, HttpStatus, HttpException, Req } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, HttpStatus, HttpException, Req, UseInterceptors } from '@nestjs/common';
 import * as slug from 'slug';
 import { v4 as uuid } from 'uuid';
 import * as qrcode from 'qrcode';
 
-import { CreateEmployeeDto } from './create-employee.dto';
+import { CreateEmployeeDto } from './employee.dto';
 import { EmployeesService } from './employees.service';
-import { Employee } from './employee.interface';
+import { Employee } from './employee.entity';
 
+import { DispatcherInterceptor } from '../../common/dispatcher.interceptor';
+
+@UseInterceptors(DispatcherInterceptor)
 @Controller('/api/v1/employees')
 export class EmployeesController {
 
@@ -34,7 +37,7 @@ export class EmployeesController {
 
   @Get(':employeeId')
   async findOne(@Param('employeeId') employeeId) {
-     return await this.employeesService.findOne(employeeId);
+     return await this.employeesService.findOne({id : employeeId });
   }
 
   @Post()

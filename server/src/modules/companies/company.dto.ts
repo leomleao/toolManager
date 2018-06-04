@@ -1,5 +1,5 @@
 import { IsString, Length } from 'class-validator';
 
-export class CreateEmployeeDto {
+export class CreateCompanyDto {
   @IsString() @Length(5, 128) readonly name: string;
 }

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
-import { Employee } from './employee.interface';
+import { Employee } from './employee.entity';
 
 @Injectable()
 export class EmployeesService {
@@ -15,7 +15,7 @@ export class EmployeesService {
     }
   }
 
-  async findOne(conds: Object) {
+  async findOne(conds: object) {
     try {
       return await this.employeeRepository.findOne({ where: conds });
     } catch (err) {

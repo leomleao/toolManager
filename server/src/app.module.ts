@@ -1,12 +1,13 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 
-import { EmployeesModule } from './employees/employees.module';
-import { ToolsModule } from './tools/tools.module';
-import { FrontendModule } from './frontend/frontend.module';
-import { LoggerMiddleware } from './logger.middleware';
+import { CompaniesModule } from './modules/companies/companies.module';
+import { EmployeesModule } from './modules/employees/employees.module';
+import { ToolsModule } from './modules/tools/tools.module';
+import { FrontendModule } from './modules/frontend/frontend.module';
+import { LoggerMiddleware } from './common/logger.middleware';
 
 @Module({
-    modules: [EmployeesModule, ToolsModule, FrontendModule],
+    modules: [EmployeesModule, ToolsModule, FrontendModule, CompaniesModule],
 })
 
 export class ApplicationModule implements NestModule {
